@@ -1,3 +1,3 @@
-# wordpress_docker
+# Mongo-Replicated-Docker
 
 Installation Guide
