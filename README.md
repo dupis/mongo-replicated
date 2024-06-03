@@ -30,8 +30,9 @@ sudo docker ps
 sudo docker stack deploy -c docker-compose.yml mongodb
 ```
 
-### Step 5: Access a container (το container id το παίρνουμε από την εντολή "sudo docker ps")
+### Step 5: Access a container
 ```sh
+#το container id το παίρνουμε από την εντολή "sudo docker ps"
 sudo docker exec -it [container id] /bin/bash
 ```
 
