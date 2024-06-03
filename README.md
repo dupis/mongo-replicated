@@ -51,9 +51,7 @@ rs.initiate ({ _id: "test-rs", members: [ { _id: 1, host: "mongo-1:27017"}, { _i
 rs.status()
 ```
 
-### Step 7: Exit the MongoDB shell and container (2 φορές το ίδιο command)
+### Step 8: Exit the MongoDB shell and container (2 φορές το ίδιο command)
 ```sh
 exit
 ```
-
-
