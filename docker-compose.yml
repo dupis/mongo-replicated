@@ -1,0 +1,87 @@
+version: "3.7"
+
+
+services:
+   mongo-1:
+     image: mongo:4
+     command: ["mongod","--replSet","test-rs"]
+     networks:
+       - mongo-net
+     ports:
+       - "27020:27017"
+       - "28020:28017"
+     volumes:
+      # where mongo stores data
+       - mongo-data-1:/data/db
+       #where mongo stores its config files
+       - mongo-config-1:/data/configdb
+     deploy:
+       mode: replicated
+       replicas: 1
+       # restart service everytime it fails
+       restart_policy:
+         condition: on-failure
+       placement:
+         constraints:
+           - node.labels.mongo.replica==1
+
+   mongo-2:
+     image: mongo:4
+     command: ["mongod","--replSet","test-rs"]
+     networks:
+       - mongo-net
+     ports:
+       - "27021:27017"
+       - "28021:28017"
+     volumes:
+       - mongo-data-2:/data/db
+       - mongo-config-2:/data/configdb
+     deploy:
+       mode: replicated
+       replicas: 1
+       restart_policy:
+         condition: on-failure
+       placement:
+         constraints:
+           - node.labels.mongo.replica==2
+
+
+   mongo-3:
+     image: mongo:4
+     command: ["mongod","--replSet","test-rs"]
+     networks:
+       - mongo-net
+     ports:
+       - "27022:27017"
+       - "28022:28017"
+     volumes:
+      # where mongo stores data
+       - mongo-data-3:/data/db
+       #where mongo stores its config files
+       - mongo-config-3:/data/configdb
+     deploy:
+       mode: replicated
+       replicas: 1
+       # restart service everytime it fails
+       restart_policy:
+         condition: on-failure
+       placement:
+         constraints:
+           - node.labels.mongo.replica==3
+
+networks:
+  mongo-net:
+volumes:
+  mongo-data-1:
+  mongo-config-1:
+  mongo-data-2:
+  mongo-config-2:
+  mongo-data-3:
+  mongo-config-3:
+
+
+
+
+
+
+
