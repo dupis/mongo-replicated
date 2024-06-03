@@ -35,3 +35,24 @@ sudo docker stack deploy -c docker-compose.yml mongodb
 sudo docker exec -it [container id] /bin/bash
 ```
 
+### Step 6: Start the MongoDB shell
+```sh
+mongo
+```
+
+### Step 7: Initiated the replica set
+```sh
+rs.initiate ({ _id: "test-rs", members: [ { _id: 1, host: "mongo-1:27017"}, { _id: 2, host: "mongo-2:27017"}, { _id: 3, host : "mongo-3:27017"}] } )
+```
+
+### Step 7: Verify the replica set status
+```sh
+rs.status()
+```
+
+### Step 7: Exit the MongoDB shell and container (2 φορές το ίδιο command)
+```sh
+exit
+```
+
+
