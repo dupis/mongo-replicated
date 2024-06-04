@@ -12,24 +12,12 @@ sudo docker network create mongo-net
 ```sh
 sudo docker compose -f docker-compose.yml up -d
 ```
-### Step 3: Δημιουργήστε τα containers
-```sh
-chmod +x create-containers.sh
-```
-```sh
-./create-containers.sh
-```
 
 ### Step 4: Βεβαιωθείτε ότι τα containers λειτουργούν
 ```sh
 sudo docker ps
 ```
-
-### Step 5: Deploy the stack
-```sh
-sudo docker stack deploy -c docker-compose.yml mongodb
-```
-
+s
 ### Step 5: Access a container
 ```sh
 #το container id το παίρνουμε από την εντολή "sudo docker ps"
