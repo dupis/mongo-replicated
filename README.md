@@ -13,23 +13,23 @@ sudo docker network create mongo-net
 sudo docker compose -f docker-compose.yml up -d
 ```
 
-### Step 4: Βεβαιωθείτε ότι τα containers λειτουργούν
+### Step 3: Βεβαιωθείτε ότι τα containers λειτουργούν
 ```sh
 sudo docker ps
 ```
-s
-### Step 5: Access a container
+
+### Step 4: Access a container
 ```sh
 #το container id το παίρνουμε από την εντολή "sudo docker ps"
 sudo docker exec -it [container id] /bin/bash
 ```
 
-### Step 6: Ξεκινήστε το shell της MongoDB
+### Step 5: Ξεκινήστε το shell της MongoDB
 ```sh
 mongo
 ```
 
-### Step 7: Ξεκίνησε το replica set
+### Step 6: Ξεκίνησε το replica set
 ```sh
 rs.initiate ({ _id: "test-rs", members: [ { _id: 1, host: "mongo-1:27017"}, { _id: 2, host: "mongo-2:27017"}, { _id: 3, host : "mongo-3:27017"}] } )
 ```
